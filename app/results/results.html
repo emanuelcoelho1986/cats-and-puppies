@@ -1,0 +1,41 @@
+<div class="page-container" ng-init="initController()">
+	<nav class="navbar navbar-default">
+	  <div class="container-fluid">
+	    <!-- Brand and toggle get grouped for better mobile display -->
+	    <div class="navbar-header">
+	      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+	        <span class="sr-only">Toggle navigation</span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	      </button>
+	      <a class="navbar-brand" href="#">HMH - Example</a>
+	    </div>
+
+	    <!-- Collect the nav links, forms, and other content for toggling -->
+	    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+		<ul class="nav navbar-nav">
+			<li ng-class="{active: type=='dogs'}" class="active">
+				<a href="#" ng-click="changeType('dogs', $event)">Puppies</a>
+			</li>
+			<li ng-class="{active: type=='cats'}">
+				<a href="#" ng-click="changeType('cats', $event)">Kittens</a>
+			</li>
+		</ul>
+	      <form class="navbar-form navbar-left" role="search">
+	    </div><!-- /.navbar-collapse -->
+	  </div><!-- /.container-fluid -->
+	</nav>
+	<div class="row text-center">
+		<div id="results" class="row">
+			<div class="col-lg-3 col-md-4 col-xs-6 thumb" ng-repeat="element in elements">
+		        <a class="thumbnail" href="#" ng-click="openPreview(element, $event)">
+					<img class="responsive" ng-src="{{element.images.fixed_height_still.url}}" />
+		        </a>
+		    </div>
+		</div>
+		<div class="row">
+			<uib-pagination total-items="totalItems" ng-model="currentPage" max-size="maxSize" class="pagination-sm" boundary-links="true" force-ellipses="true" ng-change="pageChanged()"></uib-pagination>
+		</div>
+	</div>
+</div><!--/.page-container-->

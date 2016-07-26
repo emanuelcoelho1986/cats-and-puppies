@@ -1,0 +1,10 @@
+/* Override images height */
+.thumbnail img.responsive {
+	overflow: hidden;
+	max-height: 120px;
+}
+
+/* Override image width to fit modal body */
+.modal-body img{
+	max-width: 100%;
+}
